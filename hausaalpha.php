@@ -8,7 +8,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch all alphabets and objects
-$sql = "SELECT * FROM hausaalpha";
+$sql = "SELECT * FROM arabicalpha";
 $result = $conn->query($sql);
 
 // Store data in an array
@@ -35,7 +35,7 @@ $conn->close();
 </head>
 <body>
     <div class="container">
-        <!-- Back Button -->
+        
         <button class="back-btn" onclick="window.history.back();">
         <i class="fa-solid fa-arrow-left"></i> <p>Back</p>
         </button>
@@ -66,7 +66,7 @@ $conn->close();
                 </div>
             <?php endforeach; ?>
 
-            <!-- Navigation Buttons -->
+            <!--side Navigation Buttons-->
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
@@ -77,7 +77,7 @@ $conn->close();
         function navigateBack() {
             window.history.back();
         }
-        // Auto-play first slide sounds on page load
+        // Auto-play sound 
         window.onload = function () {
             document.getElementById('letter0').play();
             setTimeout(() => {

@@ -1,13 +1,13 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body Styling */
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: "Playpen Sans", serif;
     background-image: url('../images/background.jpg');
     background-size: cover;
     background-position: center;
@@ -32,11 +32,12 @@ body {
     height: 60%;
 }
 
-/* Header Styling */
+
 h1 {
     color: #ff6f91;
     margin-bottom: 40px;
     font-size: 1.4rem;
+    font-weight: 500;
     margin-top: 30px;
 }
 
@@ -80,21 +81,21 @@ h1 {
 .language-wrapper p {
     margin-top: 10px;
     font-size: 19px;
-    font-weight: bold;
+    font-weight: 500;
     text-align: center;
     color: #ff6f91;
 }
 
-/* Back Button for hausa.php */
+/* Back Button */
 .back-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     background-color: #ffffff;
     color: #ff6f91;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
-    padding: 10px 15px;
+    padding: 5px 18px;
     border-radius: 12px;
     cursor: pointer;
     border: none;
@@ -102,10 +103,11 @@ h1 {
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s, box-shadow 0.2s;
     margin-bottom: 15px;
-
     position: absolute;
     left: 20px; 
-    top: 20px; 
+    top: 15px; 
+    z-index: 10;
+    font-family: "Playpen sans",serif;
 }
 
 .back-btn:hover {
@@ -122,10 +124,7 @@ h1 {
     height: 18px;
 }
 
-button i{
-    color: #ff6f91;
-    padding-right: 40px;
-}
+
 button p{
     padding-left: 10px;
 }

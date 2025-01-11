@@ -1,29 +1,57 @@
 <?php
-session_start(); // Start the session
+// Start the session
+session_start();
 
-// Check if the form is submitted
+// Step 1: Database Connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "letterland";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Step 2: Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Sanitize and validate form inputs
-    $child_name = htmlspecialchars(trim($_POST['child_name'])); // Sanitize child name
-    $child_age = (int) $_POST['child_age']; // Convert age to integer
-    $parent_age = (int) $_POST['parent_age']; // Convert age to integer
+    // Step 3: Sanitize and validate user inputs
+    $child_name = htmlspecialchars(trim($_POST['child_name'])); // Sanitize the child's name
+    $child_age = filter_var($_POST['child_age'], FILTER_SANITIZE_NUMBER_INT); // Sanitize the child's age
+    $parent_age = filter_var($_POST['parent_age'], FILTER_SANITIZE_NUMBER_INT); // Sanitize the parent's age
 
-    // Basic validation
-    if (empty($child_name) || $child_age <= 0 || $parent_age <= 0) {
-        // If validation fails, redirect back to the form with an error message
-        $_SESSION['error'] = "Please fill out the form correctly.";
-        header("Location: index.php"); // Replace with your form's filename if it's different
-        exit();
+    // Validate inputs (basic checks)
+    if (empty($child_name) || empty($child_age) || empty($parent_age)) {
+        die("All fields are required. Please go back and fill out the form.");
     }
 
-    // Store child's name in session for the welcome message
-    $_SESSION['child_name'] = $child_name;
+    if (!is_numeric($child_age) || $child_age <= 0) {
+        die("Invalid child age. Please enter a positive number.");
+    }
 
-    // Redirect to the language selection page
-    header("Location: language.php");
-    exit();
-} else {
-    // If accessed directly, redirect back to the form
-    header("Location: index.php"); // Replace with your form's filename if it's different
-    exit();
+    if (!is_numeric($parent_age) || $parent_age <= 0) {
+        die("Invalid parent age. Please enter a positive number.");
+    }
+
+    // Step 4: Insert data into the database
+    $stmt = $conn->prepare("INSERT INTO users (child_name, child_age, parent_age) VALUES (?, ?, ?)");
+    $stmt->bind_param("sii", $child_name, $child_age, $parent_age);
+
+    if ($stmt->execute()) {
+        // Step 5: Store user ID in session and redirect to language.php
+        $_SESSION['user_id'] = $stmt->insert_id; // Store the newly created user ID in session
+        header("Location: language.php");
+        exit;
+    } else {
+        die("Error: " . $stmt->error);
+    }
+
+    // Close the prepared statement
+    $stmt->close();
 }
+
+// Close the database connection
+$conn->close();
+?>

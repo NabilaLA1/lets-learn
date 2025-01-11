@@ -1,0 +1,27 @@
+INSERT INTO hausaalpha (hau_letter_img, hau_letter_audio, hau_object_name, hau_object_img, hau_object_audio) 
+VALUES ('content/hausaimg/B.png', 'content/hausa_audio/hausa_B1.mp4', 'Bokiti', 'content/hausaimg/bokiti.png', 'content/hausa_audio/hausa_B.mp4');
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,          -- Unique identifier for each user
+    child_name VARCHAR(255) NOT NULL,           -- Child's name
+    child_age INT NOT NULL,                     -- Child's age
+    parent_age INT NOT NULL,                    -- Parent's age
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Timestamp for when the user is created
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP -- Timestamp for updates
+);
+
+CREATE TABLE hausaquiz_questions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    object_image VARCHAR(255) NOT NULL, -- The name of the object (e.g., "Apple")
+    object_name VARCHAR(50) NOT NULL, -- The image of the object
+    option1_image VARCHAR(255) NOT NULL, -- Option 1's image
+    option2_image VARCHAR(255) NOT NULL, -- Option 2's image
+    option3_image VARCHAR(255) NOT NULL, -- Option 3's image
+    correct_option TINYINT NOT NULL -- The correct option number (1, 2, or 3)
+);
+
+INSERT INTO hausaquiz_questions (object_image, object_name, option1_image, option2_image, option3_image, correct_option) VALUES
+ ('content/hausaimg/jaka.png', 'Jaka', 'content/hausaimg/f.png', 'content/hausaimg/B.png', 'content/hausaimg/j.png', 3);
+
+ INSERT INTO arabicalpha (ara_letter_img, ara_letter_audio, ara_object_name, ara_object_img, ara_object_audio) 
+VALUES ('content/arabicimg/1.png', 'content/arabic_audio/1.m4a', 'اَرْنَبْ', 'content/arabicimg/arnab.png', 'content/arabic_audio/hausa_B.mp4');

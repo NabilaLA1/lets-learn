@@ -21,14 +21,14 @@
         <div class="language-content">
             <div class="language-wrapper">
                <!-- Alphabets -->
-                <div class="box" onclick="navigateTo('alphabets-2.php')">
+                <div class="box" onclick="navigateTo('alphabets')">
                     <img src="assets/images/arabic A.png" alt="Alphabets" class="box-img">
                 </div>
                     <p>Alphabets</p>
             </div>
             <div class="language-wrapper">
                  <!-- Object Match -->
-                <div class="box" onclick="navigateTo('object-match-2.php')">
+                <div class="box" onclick="navigateTo('object-match')">
                    <img src="assets/images/arabic obj.png" alt="Object Match" class="box-img">
                 </div>
                     <p>Object Match</p>
@@ -43,7 +43,7 @@
         }
         function navigateTo(section) {
             if (section === 'alphabets') {
-                window.location.href = 'alphabets-2.php'; // Go to Alphabets page
+                window.location.href = 'arabicalpha.php'; // Go to Alphabets page
             } else if (section === 'object-match') {
                 window.location.href = 'object-match-2.php'; // Go to Object Match page
             }

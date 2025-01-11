@@ -1,8 +1,4 @@
-<?php
-// Simulate user retrieval from database
-session_start();
-$name = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : "....."; // Replace with actual database logic
-?>
+<?php include 'fetchuser.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,15 +7,26 @@ $name = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : "....."; // Rep
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Language Selection</title>
     <link rel="stylesheet" href="assets/css/language.css">
+    <script src="https://kit.fontawesome.com/d09b6df77f.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="wrapper">
-        <div class="welcome-message">
-            <h1>Welcome Back, <span class="name"><?php echo $name; ?>!</span></h1>
-            <audio id="welcomeAudio">
-                <source src="welcome_audio.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
+        <div class="top-section">
+            <div class="welcome-message">
+                <h1>Hello, <span class="name"><?php echo htmlspecialchars($child_name); ?>!</span></h1>
+                <audio id="welcomeAudio">
+                    <source src="welcome_audio.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="top-right-buttons">
+                <button class="circle-button" onclick="redirectToPage('quiz_score')">
+                <i class="fa-solid fa-list-check"></i>
+                </button>
+                <button class="circle-button" onclick="redirectToPage('editprofile')">
+                    <i class="fa-solid fa-gear"></i>
+                </button>
+            </div>
         </div>
         <h2>Select a Language to Learn</h2>
         <div class="language-container">
@@ -38,11 +45,15 @@ $name = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : "....."; // Rep
         </div>
     </div>
     <script>
-        function redirectToPage(language) {
-            if (language === 'hausa') {
-                window.location.href = 'hausa.php'; // Redirect to Hausa page
-            } else if (language === 'arabic') {
-                window.location.href = 'arabic.php'; // Redirect to Arabic page
+       function redirectToPage(page) {
+            if (page === 'hausa') {
+                window.location.href = 'hausa.php'; //hausa page
+            } else if (page === 'arabic') {
+                window.location.href = 'arabic.php';//arabic page
+            } else if (page === 'editprofile') {
+                window.location.href = 'editprofile.php'; //settings page
+            } else if (page === 'quiz') {
+                window.location.href = 'quiz-score.php'; //quiz score page
             }
         }
     </script>

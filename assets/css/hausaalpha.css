@@ -1,4 +1,5 @@
-/* General Reset */
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +7,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: "Playpen Sans", serif;
     background-image: url('../images/background.jpg');
     background-size: cover;
     background-position: center;
@@ -17,7 +18,7 @@ body {
 }
 
 .container {
-    position: relative;
+    position: fixed;
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -26,11 +27,13 @@ body {
     width: 100%;
     height: 60%;
     text-align: center;
+    align-items: center;
 }
 
 .slideshow-container {
     position: relative;
     margin: auto;
+    align-items: center;
 }
 
 .mySlides {
@@ -39,34 +42,53 @@ body {
 
 .content {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    flex-direction: row; /* Keeps items horizontal */
+    height: 100%; /* Full height for alignment */
+    gap: 20px; /* Adds spacing between items */
 }
-.content hr{
-    color:#ff6f91;
-    height: 20px;
-    font-weight: bold;
+
+.content hr {
+    width: 4px;
+    height: 100px;
+    background-color: #ff6f91;
+    border: none;
+    margin: 0 20px; /* Space around the line */
+}
+
+.alphabet, .object {
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically */
+    text-align: center;
 }
 
 img {
     max-width: 180px;
-}
-.object p{
-    color:#ff6f91;
-    font-size: 20px;
-    font-weight: bold;
+    max-height: 180px;
+    object-fit: contain; /* Maintains aspect ratio */
+    margin-bottom: 10px; /* Adds space below the image */
 }
 
-/* Back Button for hausa.php */
+.object p {
+    margin-top: -5px;
+    color: #ff6f91;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Back Button */
 .back-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff;
+    background-color: #552b2b;
     color: #ff6f91;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
-    padding: 10px 15px;
+    padding: 5px 18px;
     border-radius: 12px;
     cursor: pointer;
     border: none;
@@ -75,17 +97,17 @@ img {
     transition: transform 0.2s, box-shadow 0.2s;
     margin-bottom: 15px;
     position: absolute;
-    left: 20px; 
-    top: 20px; 
+    left: 20px;
+    top: 15px;
     z-index: 10;
+    font-family: "Playpen Sans", serif;
 }
 
 .back-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-    background-color: #ff6f91 ;
+    background-color: #ff6f91;
     color: #ffffff;
-
 }
 
 .back-icon {
@@ -94,34 +116,30 @@ img {
     height: 18px;
 }
 
-.back-btn i{
-    color: #ffffff;
-
-}
-.obj i{
-    color: #ffffff;
-
-}
-.alpha i{
-    color: #ffffff;
-
-}
-.obj{
-    margin-left: 200px;
-}
-.back-btn p{
+.back-btn p {
     padding-left: 10px;
 }
+
+/* Buttons for sound */
 button {
     background-color: #ff6f91;
     border: none;
     padding: 10px;
     border-radius: 50%;
     cursor: pointer;
+    margin-top: 10px; /* Adds spacing below buttons */
 }
 
+.obj i,
+.alpha i {
+    color: #ffffff;
+}
 
+.obj {
+    margin-left: 200px;
+}
 
+/* Navigation Buttons */
 .prev, .next {
     position: absolute;
     top: 50%;

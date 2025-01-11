@@ -1,4 +1,5 @@
-/* General Reset */
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +7,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: "Playpen Sans", serif;
     background-image: url('../images/background.jpg');
     background-size: cover;
     background-position: center;
@@ -58,21 +59,22 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 40px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 390px;
 }
 
 .right-panel h2 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #a88bec;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
     text-align: center;
+    font-weight: 500;
 }
 
 /* Input Group */
 .input-group {
-    margin-bottom: 15px;
+    margin-bottom: 0px;
     width: 100%;
     position: relative;
 }
@@ -91,7 +93,7 @@ label i{
 
 .input-label input {
     flex: 1;
-    padding: 10px 10px 10px 40px;
+    padding: 8px 8px 8px 32px;
     font-size: 1rem;
     border: 2px solid #a88bec;
     outline: none;
@@ -99,6 +101,9 @@ label i{
     border-top: none;
     border-left: none;
     border-right: none;
+    font-family: "Playpen sans",serif;
+    font-weight: 500;
+    gap: 40px ;
 }
 
 .input-label input:focus {
@@ -106,24 +111,30 @@ label i{
 }
 
 input::placeholder {
-    color: #bbb;
+    color: #bbb ;
+    font-size: 1rem;
 }
 
 /* Submit Button */
 button {
     background-color: #a88bec;
-    color: #fff;
-    padding: 10px 20px;
+    color: #ffffff;
+    padding: 15px 15px;
     font-size: 1rem;
     border: none;
     border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-left: 80px;
+    margin-left: 50px;
+    font-family: "Playpen sans",serif;
+    font-weight: 500;
+    margin-bottom: 10px;
+    margin-top: 40px;
 }
 
 button:hover {
-    background-color: #975bc1;
+    background-color: #ff6f91; 
+    transform: scale(1.1);
 }
 
 /* Responsiveness */
